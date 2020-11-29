@@ -1,12 +1,23 @@
+
+#Initializing the board for this game.
+
 theboard = {'7':' ','8':' ','9':' ',
             '4':' ','5':' ','6':' ',
             '1':' ','2':' ','3':' '}
+
+''' We have to print the updated board after every move and 
+    thus we will make a function in which we will define the printboard function
+    so that we can easily print the board everytime by calling this function. '''
+
+
 def printboard(board):
     print(board['7'] + ' | ' + board['8'] + ' | ' + board['9'])
     print('- + - + -')
     print(board['4'] + ' | ' + board['5'] + ' | ' + board['6'])
     print('- + - + -')
     print(board['1'] + ' | ' + board['2'] + ' | ' + board['3'])
+
+
 
 reset_board_keys = []
 
@@ -32,7 +43,7 @@ def game():
             print("The place is already occupied , where else you wanna move to ?")
             continue
 
-        # Checking for who won the game.
+        #Here we will check if player X or O has won for every move after 5 moves
         if count >= 5:
 
             if theboard['7'] == theboard['8'] == theboard['9'] != ' ':
@@ -95,6 +106,9 @@ def game():
             turn = 'O'
         else:
             turn = 'X';
+
+    # Now we will ask if player wants to restart the game or not.
+
     restart = input("Do want to play Again?(y/n)")
     if restart == "y" or restart == "Y":
         for key in reset_board_keys:
